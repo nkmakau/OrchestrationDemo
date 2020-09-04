@@ -19,7 +19,9 @@ client.set("/kill", "kill containers", redis.print)
 
 var server = http.createServer(function(request, response) {
     var href = url.parse(request.url, true).href
-    response.writeHead(200, { "Content-Type": "text/plain" })
+    response.writeHead(200, {
+        "Content-Type": "text/plain"
+    })
 
     //pull the response (value) string using the URL
     client.get(href, function(err, reply) {
